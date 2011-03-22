@@ -12,6 +12,7 @@ gem 'sqlite3'
 group :test, :development do
   gem 'rspec-rails', '~> 2.4'
   gem 'autotest'
+	gem 'capybara'
 
   gem 'database_cleaner'
   gem 'cucumber-rails'
