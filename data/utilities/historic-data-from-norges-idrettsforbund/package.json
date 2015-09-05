@@ -1,0 +1,12 @@
+{
+  "name": "importer",
+  "version": "0.0.1",
+  "description": "Scrapes NIF for adata.",
+  "main": "importer.js",
+  "author": "Torstein Nicolaysen",
+  "dependencies": {
+    "cheerio": "latest",
+    "osmosis": "0.0.8",
+    "request": "latest"
+  }
+}
