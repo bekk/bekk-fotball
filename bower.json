@@ -1,0 +1,23 @@
+{
+  "name": "bekk-fotball",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bekk/bekk-fotball",
+  "authors": [
+    "Torstein Nicolaysen <tnicolaysen@gmail.com>"
+  ],
+  "description": "BEKK Fotball",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "None",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~1.1.3"
+  }
+}
