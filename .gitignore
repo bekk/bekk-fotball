@@ -1,7 +1,0 @@
-.DS_Store
-.bundle
-.idea
-db/*.sqlite3
-log/*.log
-public/stylesheets/*.css
-tmp/**/
