@@ -12,7 +12,7 @@ A mobile/table-friendly web site to enable;
 
 ## Technology
 
-### Front-end 
+### Front-end
 * Polymer for UI/UX.
 
 ### Backend / architecture

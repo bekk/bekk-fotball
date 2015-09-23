@@ -1,172 +1,226 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Polymer Starter Kit" />
-  <title>BEKK Fotball</title>
-  <!-- Place favicon.ico in the `app/` directory -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Chrome for Android theme color -->
-  <meta name="theme-color" content="#303F9F">
+    <title>BEKK Fotball</title>
+    <!-- Place favicon.ico in the `app/` directory -->
+    <!-- Chrome for Android theme color -->
+    <meta name="theme-color" content="#303F9F">
 
-  <!-- Web Application Manifest -->
-  <link rel="manifest" href="manifest.json">
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
 
-  <!-- Tile color for Win8 -->
-  <meta name="msapplication-TileColor" content="#3372DF">
+    <!-- Tile color for Win8 -->
+    <meta name="msapplication-TileColor" content="#3372DF">
 
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="PSK">
-  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="BEKK-Fotball">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
-  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="BEKK Fotball">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
-  <!-- Tile icon for Win8 (144x144) -->
-  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <!-- Tile icon for Win8 (144x144) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
 
-  <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild-->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild-->
 
-  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
-  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
 
-  <!-- will be replaced with elements/elements.vulcanized.html -->
-  <link rel="import" href="elements/elements.html">
-  <!-- endreplace-->
+    <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>-->
+    <!-- endbuild -->
+
 </head>
 
-<body unresolved class="fullbleed layout vertical">
-  <span id="browser-sync-binding"></span>
-  <template is="dom-bind" id="app">
+<body>
 
-    <paper-drawer-panel id="paperDrawerPanel">
-      <!-- Drawer Scroll Header Panel -->
-      <paper-scroll-header-panel drawer fixed>
+    <div class="ui left fixed vertical menu sidebar">
+        <a href="#" class="active item">
+            <i class="home icon"></i>
+            Home
+        </a>
+        <a href="#" class="item">
+            <i class="calendar icon"></i>
+            Matches
+        </a>
+        <a href="#" class="item">
+            <i class="line chart icon"></i>
+            Statistics
+        </a>
+        <a href="#" class="item">
+            <i class="announcement icon"></i>
+            Live
+        </a>
+        <a href="#" class="item">
+            <i class="cogs icon"></i>
+            Settings
+        </a>
+    </div>
+    <div class="pusher">
 
-        <!-- Drawer Toolbar -->
-        <paper-toolbar id="drawerToolbar">
-          <span class="paper-font-title">Menu</span>
-        </paper-toolbar>
+        <div class="ui borderless inverted red fixed menu">
+            <div class="ui container">
+                <a class="ui item menu-toggler">
+                    <i class="sidebar icon"></i>
+                </a>
 
-        <!-- Drawer Content -->
-        <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-          <a data-route="home" href="/">
-            <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
-          </a>
+                <div href="#" class="header item">
+                    <i class="soccer icon"></i>
+                    BEKK Fotball
+                </div>
 
-          <a data-route="users" href="/users">
-            <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
-          </a>
 
-          <a data-route="contact" href="/contact">
-            <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
-          </a>
-        </paper-menu>
-      </paper-scroll-header-panel>
-
-      <!-- Main Area -->
-      <paper-scroll-header-panel main condenses keep-condensed-header>
-
-        <!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar" class="tall">
-          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-          <span class="flex"></span>
-
-          <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
-
-          <!-- Application name -->
-          <div class="middle middle-container center horizontal layout">
-            <div class="app-name">BEKK Fotball</div>
-          </div>
-
-          <!-- Application sub title -->
-          <div class="bottom bottom-container center horizontal layout">
-            <div class="bottom-title paper-font-subhead">Let's kick the ball's ass!</div>
-          </div>
-
-        </paper-toolbar>
-
-        <!-- Main Content -->
-        <div class="content">
-          <iron-pages attr-for-selected="data-route" selected="{{route}}">
-
-            <section data-route="home">
-              <paper-material elevation="1">
-                <my-greeting></my-greeting>
-
-                <p class="paper-font-subhead">You now have:</p>
-                <my-list></my-list>
-
-                <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
-              </paper-material>
-              <paper-material elevation="1">
-                <p class="paper-font-body2">This is another card.</p>
-              </paper-material>
-
-              <paper-material elevation="1" class="paper-font-body2">
-                <h1 id="license">License</h1>
-                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
-                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
-                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-                <ul>
-                <li>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</li>
-                <li>Redistributions in binary form must reproduce the above
-                copyright notice, this list of conditions and the following disclaimer
-                in the documentation and/or other materials provided with the
-                distribution.</li>
-                <li>Neither the name of Google Inc. nor the names of its
-                contributors may be used to endorse or promote products derived from
-                this software without specific prior written permission.</li>
-                </ul>
-                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-              </paper-material>
-
-            </section>
-
-            <section data-route="users">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Users</h2>
-                <p>This is the users section</p>
-                <a href="/users/Rob">Rob</a>
-              </paper-material>
-            </section>
-
-            <section data-route="user-info">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">
-                User:<span>{{params.name}}</span>
-                </h2>
-                <div>This is <span>{{params.name}}</span>'s section</div>
-              </paper-material>
-            </section>
-
-            <section data-route="contact">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Contact</h2>
-                <p>This is the contact section</p>
-              </paper-material>
-            </section>
-
-          </iron-pages>
+            </div>
         </div>
-      </paper-scroll-header-panel>
-    </paper-drawer-panel>
+
+
+        <div class="ui main container">
+
+            <div class="ui three column doubling stackable grid container">
+                <div class="column">
+                    <div class="ui fluid red card">
+                        <div class="content">
+                            <div class="header">
+                                Neste kamp
+                                <a class="ui right floated basic label" href="#">
+                                    <i class="marker icon"></i> Linderud
+                                </a>
+                            </div>
+                        </div>
+                        <div class="content">
+
+
+                            <div class="ui large centered header">
+
+                                <div class="content">
+                                    FC Fritidsklubben
+                                    <div class="sub header">
+                                        24. okt kl. 20:40
+                                    </div>
+                                </div>
+
+                                <i class="right floated green arrow circle up icon"></i>
+
+                            </div>
+
+                        </div>
+                        <div class="extra content">
+                            <div class="ui grid">
+                                <div class="ten wide column">
+                                    <div class="ui tiny fluid buttons">
+                                        <button class="ui positive button">Med!</button>
+                                        <button class="ui button">Tentativ</button>
+                                    </div>
+                                </div>
+
+                                <div class="six wide middle aligned column">
+                                    6/9 påmeldt
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="ui fluid blue card">
+                        <div class="content">
+                            <div class="header">
+                                Neste kamp
+                                <a class="ui right floated basic label" href="#">
+                                    <i class="marker icon"></i> Manglerudhallen
+                                </a>
+                            </div>
+                        </div>
+                        <div class="content">
+
+
+                            <div class="ui large centered header">
+                                <div class="content">
+                                    NRK
+                                    <div class="sub header">
+                                        2. nov kl. 19:30
+                                    </div>
+                                </div>
+
+                                <i class="right floated orange arrow circle down icon"></i>
+                            </div>
+
+                        </div>
+                        <div class="extra content">
+                            <div class="ui grid">
+                                <div class="ten wide column">
+                                    <div class="ui tiny fluid buttons">
+                                        <button class="ui button">Med!</button>
+                                        <button class="ui button">Tentativ</button>
+                                    </div>
+                                </div>
+
+                                <div class="six wide middle aligned column">
+                                    10/9 påmeldt
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="ui fluid purple card">
+                        <div class="content">
+                            <div class="header">
+                                Neste kamp
+                                <a class="ui right floated basic label" href="#">
+                                    <i class="marker icon"></i> Voldsløkka, B
+                                </a>
+                            </div>
+                        </div>
+                        <div class="content">
+
+
+                            <div class="ui large centered header">
+                                <div class="content">
+                                    Ciber
+                                    <div class="sub header">
+                                        14. nov kl. 17:30
+                                    </div>
+                                </div>
+
+                                <i class="right floated yellow minus circle icon"></i>
+                            </div>
+
+                        </div>
+                        <div class="extra content">
+                            <div class="ui grid">
+                                <div class="ten wide column">
+                                    <div class="ui tiny fluid buttons">
+                                        <button class="ui button">Med!</button>
+                                        <button class="ui button">Tentativ</button>
+                                    </div>
+                                </div>
+
+                                <div class="six wide middle aligned column">
+                                    10/9 påmeldt
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <!-- Uncomment next block to enable Service Worker support (1/2) -->
     <!--
@@ -179,17 +233,14 @@
                           clients-claim
                           skip-waiting
                           on-service-worker-installed="displayInstalledToast">
-      <platinum-sw-cache default-cache-strategy="networkFirst"
-                         precache-file="precache.json">
-      </platinum-sw-cache>
+        <platinum-sw-cache default-cache-strategy="networkFirst"
+                           precache-file="precache.json">
+        </platinum-sw-cache>
     </platinum-sw-register>
     -->
-
-  </template>
-
-  <!-- build:js scripts/app.js -->
-  <script src="scripts/app.js"></script>
-  <!-- endbuild-->
+    <!-- build:js scripts/app.js -->
+    <script src="scripts/app.js"></script>
+    <!-- endbuild-->
 </body>
 
 </html>
