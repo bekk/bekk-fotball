@@ -18,22 +18,28 @@ var TeamTrend = React.createClass({
 		}
 	},
 
-  render: function() {
+	render: function() {
+		var _this = this;
 
-  	var _this = this;
-  	var labelNodes = this.props.trend.map(function(result) {
-        var resultColor = _this.getResultColor(result);
- 		var resultLetter = _this.getResultLetter(result);
- 		var classString = "ui " + resultColor + " circular label";
+		var labelNodes = this.props.trend.map(function(result) {
+			var resultColor = _this.getResultColor(result);
+			var resultLetter = _this.getResultLetter(result);
 
-        return <div className={classString}>{resultLetter}</div>
-  	})
+			var content = (_this.props.showLetter) ? resultLetter : "";
+			var emptyOrNot = (_this.props.showLetter) ? "" : "empty" ;
 
+			var classString = "ui " + resultColor + " circular " + emptyOrNot + " label";
+			return <div className={classString}>{content}</div>
+		});
 
-    return (
-		<div className="teamTrend ui mini labels">
-	    	{labelNodes}
-		</div>
-    );
-  }
+		if(this.props.amount && labelNodes.length > this.props.amount) {
+			labelNodes = labelNodes.slice(0, this.props.amount);
+		}
+
+		return (
+			<div className="teamTrend ui mini labels">
+			{labelNodes}
+			</div>
+		);
+	}
 });
