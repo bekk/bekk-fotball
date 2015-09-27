@@ -33,11 +33,17 @@
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <!-- endbuild-->
 
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="../bower_components/react/react.js"></script>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/moment/min/moment-with-locales.min.js"></script>
     <script src="semantic/dist/semantic.min.js"></script>
+
+    <script type="text/javascript" src="build/team-trend.js"></script>
+    <script type="text/javascript" src="build/next-match-card.js"></script>
+    <script type="text/javascript" src="build/next-matches-list.js"></script>
 
     <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
     <!--<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>-->
@@ -47,200 +53,311 @@
 
 <body>
 
-    <div class="ui left fixed vertical menu sidebar">
-        <a href="#" class="active item">
-            <i class="home icon"></i>
-            Home
-        </a>
-        <a href="#" class="item">
-            <i class="calendar icon"></i>
-            Matches
-        </a>
-        <a href="#" class="item">
-            <i class="line chart icon"></i>
-            Statistics
-        </a>
-        <a href="#" class="item">
-            <i class="announcement icon"></i>
-            Live
-        </a>
-        <a href="#" class="item">
-            <i class="cogs icon"></i>
-            Settings
-        </a>
-    </div>
-    <div class="pusher">
+<div class="ui left fixed vertical menu sidebar">
+    <a href="#" class="active item">
+        <i class="home icon"></i>
+        Home
+    </a>
+    <a href="#" class="item">
+        <i class="calendar icon"></i>
+        Matches
+    </a>
+    <a href="#" class="item">
+        <i class="line chart icon"></i>
+        Statistics
+    </a>
+    <a href="#" class="item">
+        <i class="announcement icon"></i>
+        Live
+    </a>
+    <a href="#" class="item">
+        <i class="cogs icon"></i>
+        Settings
+    </a>
+</div>
+<div class="pusher">
 
-        <div class="ui borderless inverted red fixed menu">
-            <div class="ui container">
-                <a class="ui item menu-toggler">
-                    <i class="sidebar icon"></i>
+<div class="ui borderless inverted red fixed menu">
+    <div class="ui container">
+        <a class="ui item menu-toggler">
+            <i class="sidebar icon"></i>
+        </a>
+
+        <div href="#" class="header item">
+            <i class="soccer icon"></i>
+            BEKK Fotball
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="ui main">
+
+<div class="container" id="next-matches-list"></div>
+<script type="text/javascript">
+  React.render(React.createElement(NextMatchesList, { url: "http://localhost:3000/app/mock-server/next-matches.json" }),
+  document.getElementById('next-matches-list'));
+</script>
+
+<hr/>
+
+<div class="ui three column doubling stackable grid container">
+<div class="column" id="next-matches">
+    <div class="ui fluid red card">
+        <div class="content">
+            <div class="header">
+                Neste kamp
+                <a class="ui right floated basic label" href="#">
+                    <i class="marker icon"></i> Linderud
                 </a>
-
-                <div href="#" class="header item">
-                    <i class="soccer icon"></i>
-                    BEKK Fotball
-                </div>
-
-
             </div>
         </div>
+        <div class="content">
 
 
-        <div class="ui main container">
+            <div class="ui large centered header">
 
-            <div class="ui three column doubling stackable grid container">
-                <div class="column">
-                    <div class="ui fluid red card">
-                        <div class="content">
-                            <div class="header">
-                                Neste kamp
-                                <a class="ui right floated basic label" href="#">
-                                    <i class="marker icon"></i> Linderud
-                                </a>
-                            </div>
-                        </div>
-                        <div class="content">
-
-
-                            <div class="ui large centered header">
-
-                                <div class="content">
-                                    FC Fritidsklubben
-                                    <div class="sub header">
-                                        24. okt kl. 20:40
-                                    </div>
-                                </div>
-
-                                <i class="right floated green arrow circle up icon"></i>
-
-                            </div>
-
-                        </div>
-                        <div class="extra content">
-                            <div class="ui grid">
-                                <div class="ten wide column">
-                                    <div class="ui tiny fluid buttons">
-                                        <button class="ui positive button">Med!</button>
-                                        <button class="ui button">Tentativ</button>
-                                    </div>
-                                </div>
-
-                                <div class="six wide middle aligned column">
-                                    6/9 påmeldt
-                                </div>
-                            </div>
-                        </div>
+                <div class="content">
+                    FC Fritidsklubben
+                    <div class="sub header">
+                        24. okt kl. 20:40
                     </div>
                 </div>
 
-                <div class="column">
-                    <div class="ui fluid blue card">
-                        <div class="content">
-                            <div class="header">
-                                Neste kamp
-                                <a class="ui right floated basic label" href="#">
-                                    <i class="marker icon"></i> Manglerudhallen
-                                </a>
-                            </div>
-                        </div>
-                        <div class="content">
+                <i class="right floated green arrow circle up icon"></i>
 
+            </div>
 
-                            <div class="ui large centered header">
-                                <div class="content">
-                                    NRK
-                                    <div class="sub header">
-                                        2. nov kl. 19:30
-                                    </div>
-                                </div>
-
-                                <i class="right floated orange arrow circle down icon"></i>
-                            </div>
-
-                        </div>
-                        <div class="extra content">
-                            <div class="ui grid">
-                                <div class="ten wide column">
-                                    <div class="ui tiny fluid buttons">
-                                        <button class="ui button">Med!</button>
-                                        <button class="ui button">Tentativ</button>
-                                    </div>
-                                </div>
-
-                                <div class="six wide middle aligned column">
-                                    10/9 påmeldt
-                                </div>
-                            </div>
-                        </div>
+        </div>
+        <div class="extra content">
+            <div class="ui grid">
+                <div class="ten wide column">
+                    <div class="ui tiny fluid buttons">
+                        <button class="ui positive button">Med!</button>
+                        <button class="ui button">Tentativ</button>
                     </div>
                 </div>
 
-                <div class="column">
-                    <div class="ui fluid purple card">
-                        <div class="content">
-                            <div class="header">
-                                Neste kamp
-                                <a class="ui right floated basic label" href="#">
-                                    <i class="marker icon"></i> Voldsløkka, B
-                                </a>
-                            </div>
-                        </div>
-                        <div class="content">
-
-
-                            <div class="ui large centered header">
-                                <div class="content">
-                                    Ciber
-                                    <div class="sub header">
-                                        14. nov kl. 17:30
-                                    </div>
-                                </div>
-
-                                <i class="right floated yellow minus circle icon"></i>
-                            </div>
-
-                        </div>
-                        <div class="extra content">
-                            <div class="ui grid">
-                                <div class="ten wide column">
-                                    <div class="ui tiny fluid buttons">
-                                        <button class="ui button">Med!</button>
-                                        <button class="ui button">Tentativ</button>
-                                    </div>
-                                </div>
-
-                                <div class="six wide middle aligned column">
-                                    10/9 påmeldt
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="six wide middle aligned column">
+                    6/9 påmeldt
                 </div>
-
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Uncomment next block to enable Service Worker support (1/2) -->
-    <!--
-    <paper-toast id="caching-complete"
-                 duration="6000"
-                 text="Caching complete! This app will work offline.">
-    </paper-toast>
+<div class="column">
+    <div class="ui fluid pink card">
+        <div class="content">
+            <div class="header">
+                Sist spilte kamp
+            </div>
+        </div>
+        <div class="content">
 
-    <platinum-sw-register auto-register
-                          clients-claim
-                          skip-waiting
-                          on-service-worker-installed="displayInstalledToast">
-        <platinum-sw-cache default-cache-strategy="networkFirst"
-                           precache-file="precache.json">
-        </platinum-sw-cache>
-    </platinum-sw-register>
-    -->
-    <!-- build:js scripts/app.js -->
-    <script src="scripts/app.js"></script>
-    <!-- endbuild-->
+            <div class="ui center aligned">
+                <div class="ui small labeled button" tabindex="0">
+                    <div class="ui small green button">
+                        BEKK
+                    </div>
+                    <p class="ui small basic green left pointing label">
+                        1
+                    </p>
+                </div>
+                <div class="ui small left labeled button" tabindex="0">
+                    <p class="ui small basic right pointing label">
+                        0
+                    </p>
+                    <div class="ui small button">
+                        FC Fritidsklubben
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui bottom attached button">
+            <i class="search icon"></i>
+            Se detaljer om kampen
+        </div>
+    </div>
+</div>
+
+<div class="column">
+    <div class="ui fluid teal card">
+        <div class="content">
+            <div class="header">
+                Sist spilte kamp
+            </div>
+        </div>
+        <div class="content">
+            <div class="ui center aligned">
+                <div class="ui small labeled button" tabindex="0">
+                    <div class="ui small button">
+                        Consilierge
+                    </div>
+                    <p class="ui small basic left pointing label">
+                        4
+                    </p>
+                </div>
+                <div class="ui small left labeled button" tabindex="0">
+                    <p class="ui small red basic right pointing label">
+                        3
+                    </p>
+                    <div class="ui small red button">
+                        BEKK
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui bottom attached button">
+            <i class="search icon"></i>
+            Se detaljer om kampen
+        </div>
+    </div>
+</div>
+
+<div class="column">
+    <div class="ui fluid black card">
+        <div class="content">
+            <div class="header">
+                Sist spilte kamp
+            </div>
+        </div>
+        <div class="content">
+            <div class="ui center aligned">
+                <div class="ui small labeled button" tabindex="0">
+                    <div class="ui small button">
+                        Rambøll
+                    </div>
+                    <p class="ui small basic left pointing label">
+                        1
+                    </p>
+                </div>
+                <div class="ui small left labeled button" tabindex="0">
+                    <p class="ui small basic right pointing label">
+                        1
+                    </p>
+                    <div class="ui small button">
+                        BEKK
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui bottom attached button">
+            <i class="search icon"></i>
+            Se detaljer om kampen
+        </div>
+    </div>
+</div>
+
+<div class="column">
+    <div class="ui fluid blue card">
+        <div class="content">
+            <div class="header">
+                Neste kamp
+                <a class="ui right floated basic label" href="#">
+                    <i class="marker icon"></i> Manglerudhallen
+                </a>
+            </div>
+        </div>
+        <div class="content">
+
+
+            <div class="ui large centered header">
+                <div class="content">
+                    NRK
+                    <div class="sub header">
+                        2. nov kl. 19:30
+                    </div>
+                </div>
+
+                <i class="right floated orange arrow circle down icon"></i>
+            </div>
+
+        </div>
+        <div class="extra content">
+            <div class="ui grid">
+                <div class="ten wide column">
+                    <div class="ui tiny fluid buttons">
+                        <button class="ui button">Med!</button>
+                        <button class="ui button">Tentativ</button>
+                    </div>
+                </div>
+
+                <div class="six wide middle aligned column">
+                    10/9 påmeldt
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="column">
+    <div class="ui fluid purple card">
+        <div class="content">
+            <div class="header">
+                Neste kamp
+                <a class="ui right floated basic label" href="#">
+                    <i class="marker icon"></i> Voldsløkka, B
+                </a>
+            </div>
+        </div>
+        <div class="content">
+
+
+            <div class="ui large centered header">
+                <div class="content">
+                    Ciber
+                    <div class="sub header">
+                        14. nov kl. 17:30
+                    </div>
+                </div>
+
+                <i class="right floated yellow minus circle icon"></i>
+            </div>
+
+        </div>
+        <div class="extra content">
+            <div class="ui grid">
+                <div class="ten wide column">
+                    <div class="ui tiny fluid buttons">
+                        <button class="ui button">Med!</button>
+                        <button class="ui button">Tentativ</button>
+                    </div>
+                </div>
+
+                <div class="six wide middle aligned column">
+                    10/9 påmeldt
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Uncomment next block to enable Service Worker support (1/2) -->
+<!--
+<paper-toast id="caching-complete"
+             duration="6000"
+             text="Caching complete! This app will work offline.">
+</paper-toast>
+
+<platinum-sw-register auto-register
+                      clients-claim
+                      skip-waiting
+                      on-service-worker-installed="displayInstalledToast">
+    <platinum-sw-cache default-cache-strategy="networkFirst"
+                       precache-file="precache.json">
+    </platinum-sw-cache>
+</platinum-sw-register>
+-->
+<!-- build:js scripts/app.js -->
+<script src="scripts/app.js"></script>
+<!-- endbuild-->
 </body>
 
 </html>

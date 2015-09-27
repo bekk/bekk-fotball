@@ -1,3 +1,5 @@
+'use strict';
+
 (function (document) {
     'use strict';
 
@@ -13,5 +15,4 @@
 
         $('.ui.sidebar').sidebar('attach events', '.menu-toggler');
     });
-
 })(document);
