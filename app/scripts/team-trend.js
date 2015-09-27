@@ -38,7 +38,7 @@ var TeamTrend = React.createClass({
 
 		return (
 			<div className="teamTrend ui mini labels">
-			{labelNodes}
+				{labelNodes}
 			</div>
 		);
 	}

@@ -14,7 +14,7 @@ var NextMatchCard = React.createClass({
     // Button should indicate call-to-action if there are not enough players
     var signupButton = this.hasEnoughPlayers() ? React.createElement(
       "button",
-      { className: "ui button" },
+      { className: "ui blue button" },
       "Med!"
     ) : React.createElement(
       "button",
@@ -31,16 +31,15 @@ var NextMatchCard = React.createClass({
         React.createElement(
           "div",
           { className: "ui center aligned" },
-          React.createElement(TeamTrend, { trend: this.props.data.oponent.trend, amount: 4, showLetter: false }),
           React.createElement(
             "p",
             { className: "ui huge header" },
             this.props.data.oponent.name
           ),
+          React.createElement(TeamTrend, { trend: this.props.data.oponent.trend, amount: 3, showLetter: false }),
           React.createElement(
-            "a",
-            { className: "ui basic label" },
-            React.createElement("i", { className: "clock icon" }),
+            "p",
+            { className: "medium" },
             moment(this.props.data.startTime).calendar(null, { sameElse: 'll [kl.] LT' })
           ),
           React.createElement(
@@ -66,7 +65,7 @@ var NextMatchCard = React.createClass({
               signupButton,
               React.createElement(
                 "button",
-                { className: "ui button" },
+                { className: "ui basic blue button" },
                 "Tentativ"
               )
             )
