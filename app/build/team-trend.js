@@ -29,32 +29,36 @@ var TeamTrend = React.createClass({
 		}
 	},
 
-	render: function render() {
+	getCircleNodes: function getCircleNodes(trend) {
 		var _this = this;
 
-		var labelNodes = this.props.trend.map(function (result) {
+		// Iterate through each result and map it ot a circular label
+		var labelNodes = trend.map(function (result) {
 			var resultColor = _this.getResultColor(result);
 			var resultLetter = _this.getResultLetter(result);
 
-			var content = _this.props.showLetter ? resultLetter : "";
 			var emptyOrNot = _this.props.showLetter ? "" : "empty";
 
-			var classString = "ui " + resultColor + " circular " + emptyOrNot + " label";
 			return React.createElement(
 				"div",
-				{ className: classString },
-				content
+				{ className: "ui " + resultColor + " circular " + emptyOrNot + " label" },
+				_this.props.showLetter ? resultLetter : ""
 			);
 		});
 
+		// Check if it needs to be sliced down to the max number or circles
 		if (this.props.amount && labelNodes.length > this.props.amount) {
 			labelNodes = labelNodes.slice(0, this.props.amount);
 		}
 
+		return labelNodes;
+	},
+
+	render: function render() {
 		return React.createElement(
 			"div",
 			{ className: "teamTrend ui mini labels" },
-			labelNodes
+			this.getCircleNodes(this.props.trend)
 		);
 	}
 });

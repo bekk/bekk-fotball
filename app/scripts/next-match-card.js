@@ -6,6 +6,17 @@ var NextMatchCard = React.createClass({
     return signedUp >= spots;
   },
 
+  humanizedDate: function(time) {
+    return moment(time).calendar(null, {
+      sameDay: '[i dag kl. ]LT',
+      nextDay: '[i morgen kl. ]LT',
+      nextWeek: '[neste ]dddd [kl. ]LT',
+      lastDay: '[i går]',
+      lastWeek: '[sist ] dddd',
+      sameElse: 'Do MMM [ kl. ] LT'
+    });
+  },
+
   render: function() {
 
     // Button should indicate call-to-action if there are not enough players
@@ -24,17 +35,13 @@ var NextMatchCard = React.createClass({
               <TeamTrend trend={this.props.data.oponent.trend} amount={3} showLetter={false} />
 
               <p className="medium">
-                {moment(this.props.data.startTime).calendar(null, { sameElse: 'll [kl.] LT' })}
+                {this.humanizedDate(this.props.data.startTime)}
               </p>
-
               <a className="ui basic label">
                 <i className="marker icon"></i>
                 {this.props.data.arena.name}
               </a>
-
             </div>
-            {/*<i className="right floated green arrow circle up icon"></i>*/}
-
         </div>
 
         <div className="extra content">
