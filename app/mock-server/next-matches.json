@@ -1,54 +1,68 @@
 [
-    {
-        "oponent": {
-        	"name": "FC Fritidsklubben",
-        	"ranking": 1,
-        	"trend": ["W", "W", "D", "W"]
-    	},
-        "arena": {
-        	"name": "Linderud",
-        	"mapUrl": "https://goo.gl/maps/bhHpsA7wbK92"
-        },
-        "startTime": "2015-09-30T18:40:00.000Z",
-        "signedUp": [6,9],
-       	"links": {
-       		"sign-up": "/join/123",
-       		"sign-up-tentative": "/join/123/tentative"
-       	}
-    },
-    {
-        "oponent": {
-        	"name": "NRK",
-        	"ranking": 6,
-        	"trend": ["D", "L", "L", "W"]
-    	},
-        "arena": {
-        	"name": "Manglerudhallen",
-        	"mapUrl": "https://goo.gl/maps/bhHpsA7wbK92"
-        },
-        "startTime": "2015-10-02T19:30:00.000Z",
-        "signedUp": [10,9],
-       	"links": {
-       		"sign-up": "/join/123",
-       		"sign-up-tentative": "/join/123/tentative"
-       	}
-    },
-    {
-        "oponent": {
-        	"name": "Ciber",
-        	"ranking": 5,
-        	"trend": ["L", "D", "W", "D"]
-    	},
-        "arena": {
-        	"name": "Voldsløkka, B",
-        	"mapUrl": "https://goo.gl/maps/bhHpsA7wbK92"
-        },
-        "startTime": "2015-11-14T17:30:00.000Z",
-        "signedUp": [4,5],
-       	"links": {
-       		"sign-up": "/join/123",
-       		"sign-up-tentative": "/join/123/tentative"
-       	}
-    }
-
+   {
+      "oponent":{
+         "name":"FC Fritidsklubben",
+         "ranking":1,
+         "trend":[
+            "W",
+            "W",
+            "D",
+            "W"
+         ]
+      },
+      "arena":{
+         "name":"Linderud",
+         "mapUrl":"https://goo.gl/maps/bhHpsA7wbK92"
+      },
+      "startTime":"2015-09-30T18:40:00.000Z",
+      "signedUp":[ 6, 9 ],
+      "links":{
+         "sign-up":"/join/123",
+         "sign-up-tentative":"/join/123/tentative"
+      }
+   },
+   {
+      "oponent":{
+         "name":"NRK",
+         "ranking":6,
+         "trend":[
+            "D",
+            "L",
+            "L",
+            "W"
+         ]
+      },
+      "arena":{
+         "name":"Manglerudhallen",
+         "mapUrl":"https://goo.gl/maps/bhHpsA7wbK92"
+      },
+      "startTime":"2015-10-02T19:30:00.000Z",
+      "signedUp":[ 10, 9 ],
+      "links":{
+         "sign-up":"/join/123",
+         "sign-up-tentative":"/join/123/tentative"
+      }
+   },
+   {
+      "oponent":{
+         "name":"Ciber",
+         "ranking":5,
+         "trend":[
+            "L",
+            "D",
+            "W",
+            "D"
+         ]
+      },
+      "arena":{
+         "name":"Voldsløkka, B",
+         "mapUrl":"https://goo.gl/maps/bhHpsA7wbK92"
+      },
+      "startTime":"2015-11-14T17:30:00.000Z",
+      "signedUp":[ 4, 5 ],
+      "links":{
+         "sign-up":"/join/123",
+         "sign-up-tentative":"/join/123/tentative"
+      }
+   }
 ]

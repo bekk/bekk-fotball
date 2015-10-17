@@ -44,6 +44,8 @@
     <script type="text/javascript" src="build/team-trend.js"></script>
     <script type="text/javascript" src="build/next-match-card.js"></script>
     <script type="text/javascript" src="build/next-matches-list.js"></script>
+    <script type="text/javascript" src="build/played-match-card.js"></script>
+    <script type="text/javascript" src="build/previous-matches-list.js"></script>
 
     <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
     <!--<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>-->
@@ -96,58 +98,16 @@
 <div class="ui main">
 
 <div class="container" id="next-matches-list"></div>
+<div class="container" id="previous-matches-list"></div>
 <script type="text/javascript">
   React.render(React.createElement(NextMatchesList, { url: "http://localhost:3000/app/mock-server/next-matches.json" }),
   document.getElementById('next-matches-list'));
+
+  React.render(React.createElement(PreviousMatchesList, { url: "http://localhost:3000/app/mock-server/match-results.json" }),
+  document.getElementById('previous-matches-list'));
 </script>
 
-<hr/>
-
 <div class="ui three column doubling stackable grid container">
-<div class="column" id="next-matches">
-    <div class="ui fluid red card">
-        <div class="content">
-            <div class="header">
-                Neste kamp
-                <a class="ui right floated basic label" href="#">
-                    <i class="marker icon"></i> Linderud
-                </a>
-            </div>
-        </div>
-        <div class="content">
-
-
-            <div class="ui large centered header">
-
-                <div class="content">
-                    FC Fritidsklubben
-                    <div class="sub header">
-                        24. okt kl. 20:40
-                    </div>
-                </div>
-
-                <i class="right floated green arrow circle up icon"></i>
-
-            </div>
-
-        </div>
-        <div class="extra content">
-            <div class="ui grid">
-                <div class="ten wide column">
-                    <div class="ui tiny fluid buttons">
-                        <button class="ui positive button">Med!</button>
-                        <button class="ui button">Tentativ</button>
-                    </div>
-                </div>
-
-                <div class="six wide middle aligned column">
-                    6/9 påmeldt
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="column">
     <div class="ui fluid pink card">
         <div class="content">
